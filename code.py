@@ -3,11 +3,11 @@ import board
 import digitalio
 import usb_hid
 from adafruit_hid.keyboard import Keyboard
-from keyboard_layout_us import KeyboardLayoutUS
+from keyboard_layout_win_de import KeyboardLayout
 
 
 kbd = Keyboard(usb_hid.devices)
-layout = KeyboardLayoutUS(kbd)
+layout = KeyboardLayout(kbd)
 
 button0 = digitalio.DigitalInOut(board.GP0)
 button0.direction = digitalio.Direction.INPUT
