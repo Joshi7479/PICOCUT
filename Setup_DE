@@ -1,1 +1,17 @@
+= = =   =    = =  =     =  = = =
+=    =  =  =      =     =    =  
+= = =   =  =      =     =    =  
+=       =    = =    = =      =  
+
 1. Um PICUT auf deinem Raspberry PI Pico zu installieren, muss als erstes CircuitPython installiert werden. Lade dazu die Dateien hier: https://circuitpython.org/downloads
+2. Stecke den Pi aus.
+3. Halte den Knopf auf der Platine deines Pi gedrückt.
+4. Während du den Knopf drückst, stecke ihn in deinen Pc.
+5. Kopiere die gerade heruntergeladene Datei auf den Pi.
+6. Für Deutsche Tastaturen lädst du dir jetzt hier aus dem Repositorie die Dateien herunter: Setup.py; config.txt und code.py.
+7. Lege Setup.py zusammen mit config.txt in einen Ordner.
+8. Führe nun setup.py aus (evtl. rechtsklick --> Als Programm ausführen)
+9. Folge dem Setup.
+10. Kopiere die Dateien config.txt und code.py auf den Pi.
+11. Stecke den Pi einmal ab und wieder an.
+12. Fertig!
