@@ -1,0 +1,19 @@
+= = =   =    = =  =     =  = = =
+=    =  =  =      =     =    =  
+= = =   =  =      =     =    =  
+=       =    = =    = =      =  
+
+1. To install PICUT on your Pi Pico you need to install CircuitPython. Get the files here: https://circuitpython.org/downloads
+2. Stake out the Pi.
+3. Hold the button on the Pi.
+4. While you hold the button, insert the cable back in the Pi.
+5. Now Copy the recently downloaded file onto the Pi.
+6. For QWERTY Layout download following Files out of this repo: config.txt; Setup_EN.py and code_en.py
+6.1. Also you´ll need the bundle for your circuitpython version from this side: https://circuitpython.org/libraries
+6.2. Unzip the folder and copy from folder lib the folder adafruit_hid onto the folder lib on the Pi.
+7. Put Setup_EN.py together with config.txt in one folder.
+8. Start setup.py as a Programm
+9. Follow the Instructions.
+10. Copy the files config.txt and code_en.py onto the Pi.
+11. Restart the Pi.
+12. Done!
