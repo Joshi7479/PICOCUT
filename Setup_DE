@@ -11,6 +11,7 @@
 6. Für Deutsche Tastaturen lädst du dir jetzt hier aus dem Repositorie die Dateien herunter: Setup.py; config.txt und code.py.
 7. Lege Setup.py zusammen mit config.txt in einen Ordner.
 8. Führe nun setup.py aus (evtl. rechtsklick --> Als Programm ausführen)
+8.1 Für alle, die tiefer im Thema sind, steht das Setup-Tool auch in java zur verfügung.
 9. Folge dem Setup.
 10. Kopiere die Dateien config.txt und code.py auf den Pi.
 11. Stecke den Pi einmal ab und wieder an.
