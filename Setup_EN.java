@@ -22,6 +22,12 @@ void main() throws IOException, InterruptedException {
         Thread.currentThread().interrupt();
     }
     System.out.println("\n\nWelcome to PICUT©-Setup!\n\n");
+    try {
+        TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
+    System.out.println("ONLY the Raspberry Pi Pico Family is supported!\n\n");
 
     try {
         TimeUnit.SECONDS.sleep(1);

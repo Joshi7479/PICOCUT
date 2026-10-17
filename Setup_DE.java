@@ -21,6 +21,7 @@ void main() throws IOException {
         Thread.currentThread().interrupt();
     }
     System.out.println("\n\nWillkommen zum PICUT©-Setup!\n\n");
+    System.out.println("ACHTUNG! Diese Software unterstüzt NUR die Raspberry Pi Pico Familie!\n\n");
 
     try {
         TimeUnit.SECONDS.sleep(1);
