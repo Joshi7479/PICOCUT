@@ -1,7 +1,8 @@
-= = =   =    = =  =     =  = = =
-=    =  =  =      =     =    =  
-= = =   =  =      =     =    =  
-=       =    = =    = =      =  
+    = = =   =    = =     = =   = =   =     =  = = = =
+    =    =  =  =       =     =       =     =     =   
+    = = =   =  =       =     =       =     =     =   
+    =       =    = =     = =   = =     = =       =   
+
 
 1. To install PICUT on your Pi Pico you need to install CircuitPython. Get the files here: https://circuitpython.org/downloads
 2. Stake out the Pi.
