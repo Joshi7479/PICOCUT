@@ -1,27 +1,63 @@
 import java.io.IOException;
+import java.io.BufferedWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 
 void main() throws IOException, InterruptedException {
+    var scan = new Scanner(System.in);
+    System.out.println("\n\n");
     System.out.println("= = =   =    = =  =     =  = = = ©");
     System.out.println("=    =  =  =      =     =    =  ");
     System.out.println("= = =   =  =      =     =    =  ");
     System.out.println("=       =    = =    = =      =  ");
-    System.out.println("\n\nWelcome to PICUT©-Setup!");
+    try {
+        TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
+    System.out.println("\n\nWelcome to PICUT©-Setup!\n\n");
 
+    try {
+        TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
 
+    System.out.println("Do you need a config file? (0=No, 1 =Yes)\n");
+    var b = scan.nextInt();
+    if (b == 1) {
+        File config = new File("config.txt");
+
+        Path newconfig = Paths.get("config.txt");
+        try (BufferedWriter writer = Files.newBufferedWriter(newconfig)) {
+            for (int i = 0; i < 30; i++) {
+                writer.newLine(); // Schreibt den plattformunabhängigen Zeilenumbruch
+            }
+            System.out.println("Config was generated successfully!.");
+        } catch (IOException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+    }
+
+    try {
+        TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
 
     int a = 1;
     while (a == 1) {
         Path pfad = Path.of("config.txt");
         List<String> zeilen = Files.readAllLines(pfad, StandardCharsets.UTF_8);
-        var scan = new Scanner(System.in);
 
-        System.out.println("Which Button do you want to configure? (Please type in the GP Number. Only the Pins from 1 - 22 on any Pi Pico are supported!\nhttps://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm");
+
+        System.out.println("Which Button do you want to configure? (Please type in the GP Number. Only the Pins from 1 - 22 on any Pi Pico are supported!\nPinouts: https://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)");
         int button = scan.nextInt();
 
         scan.nextLine();
@@ -46,6 +82,12 @@ void main() throws IOException, InterruptedException {
         a = scan.nextInt();
 
     }
+    System.out.println("Now you can copy the config.txt from this directory onto your Pi!");
+    try {
+        TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
     System.out.println("= = =   =    = =  =     =  = = = ©");
     System.out.println("=    =  =  =      =     =    =  ");
     System.out.println("= = =   =  =      =     =    =  ");
@@ -53,10 +95,8 @@ void main() throws IOException, InterruptedException {
     System.out.println("\n\nCU!");
 
     try {
-        // Pausiert den aktuellen Thread für 1 Sekunde
         TimeUnit.SECONDS.sleep(1);
     } catch (InterruptedException e) {
-        // Behandlung der Ausnahme, falls der Schlaf unterbrochen wird
         Thread.currentThread().interrupt();
     }
 }

@@ -1,24 +1,54 @@
 import java.io.IOException;
+import java.io.BufferedWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 void main() throws IOException {
+    System.out.println("\n\n");
     System.out.println("= = =   =    = =  =     =  = = = ©");
     System.out.println("=    =  =  =      =     =    =  ");
     System.out.println("= = =   =  =      =     =    =  ");
     System.out.println("=       =    = =    = =      =  ");
-    System.out.println("\n\nWillkommen zum PICUT©-Setup!");
+    var scan = new Scanner(System.in);
+    try {
+        TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
+    System.out.println("\n\nWillkommen zum PICUT©-Setup!\n\n");
+
+    try {
+        TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
     int a = 1;
+    System.out.println("Du hast noch keine Config Datei? Soll eine automatisch erstellt werden? (0=Nein, 1 =Ja)\n");
+    var b = scan.nextInt();
+    if (b == 1) {
+        File config = new File("config.txt");
+
+        Path newconfig = Paths.get("config.txt");
+        try (BufferedWriter writer = Files.newBufferedWriter(newconfig)) {
+            for (int i = 0; i < 30; i++) {
+                writer.newLine();
+            }
+            System.out.println("Config wurde automatisch erstellt!.");
+        } catch (IOException e) {
+            System.out.println("Ein Fehler ist aufgetreten: " + e.getMessage());
+        }
+    }
     while (a == 1) {
         Path pfad = Path.of("config.txt");
         List<String> zeilen = Files.readAllLines(pfad, StandardCharsets.UTF_8);
-        var scan = new Scanner(System.in);
 
-        System.out.println("Welcher Knopf soll etwas tuen? (Bitte die GP Nummer (https://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)\nNur die Pins 1 - 22 auf jedem Pi Pico werden unterstüzt.");
+
+        System.out.println("Welcher Knopf soll etwas tuen? (Bitte die GP Nummer eingeben) (Hier gibt es den Pin-Belegungs-Planhttps://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)\nNur die Pins 1 - 22 auf jedem Pi Pico werden unterstüzt.)");
         int button = scan.nextInt();
 
         scan.nextLine();
@@ -29,7 +59,6 @@ void main() throws IOException {
             System.exit(5);
         }
         int button2 = button + 5;
-        System.out.println(button2);
         System.out.println("Was soll der Knopf tuen?");
         var text = scan.nextLine();
 
@@ -44,6 +73,12 @@ void main() throws IOException {
         a = scan.nextInt();
 
     }
+    System.out.println("Jetzt kannst du die config.txt auf deinen Pi kopieren.\n\n");
+    try {
+        TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
     System.out.println("= = =   =    = =  =     =  = = = ©");
     System.out.println("=    =  =  =      =     =    =  ");
     System.out.println("= = =   =  =      =     =    =  ");
@@ -51,10 +86,8 @@ void main() throws IOException {
     System.out.println("\n\nBis Bald!");
 
     try {
-        // Pausiert den aktuellen Thread für 1 Sekunde
         TimeUnit.SECONDS.sleep(1);
     } catch (InterruptedException e) {
-        // Behandlung der Ausnahme, falls der Schlaf unterbrochen wird
         Thread.currentThread().interrupt();
     }
 }
