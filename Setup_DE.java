@@ -39,9 +39,9 @@ void main() throws IOException {
             for (int i = 0; i < 30; i++) {
                 writer.newLine();
             }
-            System.out.println("Config wurde automatisch erstellt!.");
+            System.out.println("\nConfig wurde automatisch generiert!");
         } catch (IOException e) {
-            System.out.println("Ein Fehler ist aufgetreten: " + e.getMessage());
+            System.out.println("\nEin Fehler ist aufgetreten: " + e.getMessage());
         }
     }
     while (a == 1) {
@@ -49,7 +49,8 @@ void main() throws IOException {
         List<String> zeilen = Files.readAllLines(pfad, StandardCharsets.UTF_8);
 
 
-        System.out.println("Welcher Knopf soll etwas tuen? (Bitte die GP Nummer eingeben) (Hier gibt es den Pin-Belegungs-Planhttps://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)\nNur die Pins 1 - 22 auf jedem Pi Pico werden unterstüzt.)");
+        System.out.println("\nWelcher Knopf soll etwas tuen? (Bitte die GP Nummer eingeben) (Hier gibt es den Pin-Belegungs-Planhttps://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)\nNur die Pins 1 - 22 auf jedem Pi Pico werden unterstüzt.)");
+        System.out.println("");
         int button = scan.nextInt();
 
         scan.nextLine();
@@ -60,21 +61,21 @@ void main() throws IOException {
             System.exit(5);
         }
         int button2 = button + 5;
-        System.out.println("Was soll der Knopf tuen?");
+        System.out.println("\nWas soll der Knopf tuen?\n");
         var text = scan.nextLine();
 
         if (button2 >= 5 && button < zeilen.size()) {
             zeilen.set(button2, text);
             Files.write(pfad, zeilen, StandardCharsets.UTF_8);
-            System.out.println("Config aktualisiert");
+            System.out.println("\nConfig aktualisiert\n\n");
         } else {
             System.out.println("Ups, da hat etwas nicht geklappt...");
         }
-        System.out.println("Noch einen Button konfigurieren? (0=Nein, 1=Ja)");
+        System.out.println("Noch einen Button konfigurieren? (0=Nein, 1=Ja)\n");
         a = scan.nextInt();
 
     }
-    System.out.println("Jetzt kannst du die config.txt auf deinen Pi kopieren.\n\n");
+    System.out.println("\nJetzt kannst du die config.txt auf deinen Pi kopieren.\n\n");
     try {
         TimeUnit.SECONDS.sleep(1);
     } catch (InterruptedException e) {
@@ -84,6 +85,8 @@ void main() throws IOException {
     System.out.println("=    =  =  =      =     =    =  ");
     System.out.println("= = =   =  =      =     =    =  ");
     System.out.println("=       =    = =    = =      =  ");
+    System.out.println("Made by Joshi7479");
+    System.out.println("Support this Project on Github: https://github.com/Joshi7479/PICUT");
     System.out.println("\n\nBis Bald!");
 
     try {

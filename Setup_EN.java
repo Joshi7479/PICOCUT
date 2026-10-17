@@ -45,9 +45,9 @@ void main() throws IOException, InterruptedException {
             for (int i = 0; i < 30; i++) {
                 writer.newLine(); // Schreibt den plattformunabhängigen Zeilenumbruch
             }
-            System.out.println("Config was generated successfully!.");
+            System.out.println("\nConfig was generated successfully!.");
         } catch (IOException e) {
-            System.out.println("Something went wrong: " + e.getMessage());
+            System.out.println("\nSomething went wrong: " + e.getMessage());
         }
     }
 
@@ -63,7 +63,8 @@ void main() throws IOException, InterruptedException {
         List<String> zeilen = Files.readAllLines(pfad, StandardCharsets.UTF_8);
 
 
-        System.out.println("Which Button do you want to configure? (Please type in the GP Number. Only the Pins from 1 - 22 on any Pi Pico are supported!\nPinouts: https://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)");
+        System.out.println("\nWhich Button do you want to configure? (Please type in the GP Number. Only the Pins from 1 - 22 on any Pi Pico are supported!)\nPinouts: https://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)");
+        System.out.println("");
         int button = scan.nextInt();
 
         scan.nextLine();
@@ -74,21 +75,22 @@ void main() throws IOException, InterruptedException {
             System.exit(5);
         }
         int button2 = button + 5;
-        System.out.println("What should the Button do?");
+        System.out.println("\nWhat should the Button do?\n");
         var text = scan.nextLine();
 
         if (button2 >= 5 && button < zeilen.size()) {
             zeilen.set(button2, text);
             Files.write(pfad, zeilen, StandardCharsets.UTF_8);
-            System.out.println("Config updatet!");
+            System.out.println("\nConfig updatet!\n");
         } else {
             System.out.println("Sorry. Something went wrong! Please Try again!");
         }
-        System.out.println("Configure another Button? (0=No, 1=Yes)");
+        System.out.println("Configure another Button? (0=No, 1=Yes)\n");
         a = scan.nextInt();
+        System.out.println("\n");
 
     }
-    System.out.println("Now you can copy the config.txt from this directory onto your Pi!");
+    System.out.println("Now you can copy the config.txt from this directory onto your Pi!\n\n");
     try {
         TimeUnit.SECONDS.sleep(1);
     } catch (InterruptedException e) {
@@ -99,7 +101,8 @@ void main() throws IOException, InterruptedException {
     System.out.println("= = =   =  =      =     =    =  ");
     System.out.println("=       =    = =    = =      =  ");
     System.out.println("\n\nCU!");
-
+    System.out.println("Made by Joshi7479");
+    System.out.println("Support this Project on Github: https://github.com/Joshi7479/PICUT");
     try {
         TimeUnit.SECONDS.sleep(1);
     } catch (InterruptedException e) {
