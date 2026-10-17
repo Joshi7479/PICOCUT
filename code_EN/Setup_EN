@@ -11,7 +11,7 @@
 6. For QWERTY Layout download following Files out of this repo: config.txt; Setup_EN.py and code_en.py
 6.1. Also you´ll need the bundle for your circuitpython version from this side: https://circuitpython.org/libraries
 6.2. Unzip the folder and copy from folder lib the folder adafruit_hid onto the folder lib on the Pi.
-7. Put Setup_EN.py in an extra folder.
+7. Put Setup_EN.py in an extra folder. If you´re going to use the Python-Setup-System, you also have to put the config.txt in this folder. The Java Version will generate a New one.
 8. Start setup.py as a Programm
 8.1 For any People, who dont want to use the Pytho-script, there is also a Setup-Tool writen in Java!
 9. Follow the Instructions.
