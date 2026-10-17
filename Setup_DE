@@ -1,9 +1,9 @@
-= = =   =    = =  =     =  = = =
-=    =  =  =      =     =    =  
-= = =   =  =      =     =    =  
-=       =    = =    = =      =  
+    = = =   =    = =     = =   = =   =     =  = = = =
+    =    =  =  =       =     =       =     =     =   
+    = = =   =  =       =     =       =     =     =   
+    =       =    = =     = =   = =     = =       =   
 
-1. Um PICUT auf deinem Raspberry PI Pico zu installieren, muss als erstes CircuitPython installiert werden. Lade dazu die Dateien hier: https://circuitpython.org/downloads
+1. Um PICOCUT auf deinem Raspberry PI Pico zu installieren, muss als erstes CircuitPython installiert werden. Lade dazu die Dateien hier: https://circuitpython.org/downloads
 2. Stecke den Pi aus.
 3. Halte den Knopf auf der Platine deines Pi gedrückt.
 4. Während du den Knopf drückst, stecke ihn in deinen Pc.
