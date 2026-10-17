@@ -13,6 +13,7 @@
 6.2. Unzip the folder and copy from folder lib the folder adafruit_hid onto the folder lib on the Pi.
 7. Put Setup_EN.py together with config.txt in one folder.
 8. Start setup.py as a Programm
+8.1 For any People, who dont want to use the Pytho-script, there is also a Setup-Tool writen in Java!
 9. Follow the Instructions.
 10. Copy the files config.txt and code_en.py onto the Pi.
 11. Restart the Pi.
