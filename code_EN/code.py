@@ -3,7 +3,7 @@ import board
 import digitalio
 import usb_hid
 from adafruit_hid.keyboard import Keyboard
-from keyboard_layout_us import KeyboardLayoutUS
+from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
 
 
 kbd = Keyboard(usb_hid.devices)
