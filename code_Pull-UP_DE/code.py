@@ -3,14 +3,10 @@ import board
 import digitalio
 import usb_hid
 from adafruit_hid.keyboard import Keyboard
-from keyboard_layout_win_de import KeyboardLayout
+from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
 
 kbd = Keyboard(usb_hid.devices)
-layout = KeyboardLayout(kbd)
-
-button0 = digitalio.DigitalInOut(board.GP0)
-button0.direction = digitalio.Direction.INPUT
-button0.pull = digitalio.Pull.UP
+layout = KeyboardLayoutUS(kbd)
 
 button1 = digitalio.DigitalInOut(board.GP1)
 button1.direction = digitalio.Direction.INPUT
@@ -129,21 +125,16 @@ with open("config.txt", "r", encoding="utf-8") as datei:
     b23 = zeilen[27].strip()
 
 while True:
-
-    if not button0.value:
-        layout.write(b1) 
-        time.sleep(0.3)
-
     if not button1.value:
-        layout.write(b2) 
+        layout.write(b2)
         time.sleep(0.3)
-
+           
     if not button2.value:
         layout.write(b3)
         time.sleep(0.3)
 
     if not button3.value:
-        layout.write(b4) 
+        layout.write(b4)
         time.sleep(0.3)
 
     if not button4.value:
@@ -151,7 +142,7 @@ while True:
         time.sleep(0.3)
 
     if not button5.value:
-        layout.write(b6) 
+        layout.write(b6)
         time.sleep(0.3)
 
     if not button6.value:
@@ -159,15 +150,15 @@ while True:
         time.sleep(0.3)
 
     if not button7.value:
-        layout.write(b8) 
+        layout.write(b8)
         time.sleep(0.3)
 
     if not button8.value:
-        layout.write(b9) 
+        layout.write(b9)
         time.sleep(0.3)
 
     if not button9.value:
-        layout.write(b10) 
+        layout.write(b10)
         time.sleep(0.3)
 
     if not button10.value:
@@ -175,15 +166,15 @@ while True:
         time.sleep(0.3)
 
     if not button11.value:
-        layout.write(b12) 
+        layout.write(b12)
         time.sleep(0.3)
 
     if not button12.value:
-        layout.write(b13) 
+        layout.write(b13)
         time.sleep(0.3)
-        
+
     if not button13.value:
-        layout.write(b14) 
+        layout.write(b14)
         time.sleep(0.3)
 
     if not button14.value:
@@ -191,7 +182,7 @@ while True:
         time.sleep(0.3)
 
     if not button15.value:
-        layout.write(b16) 
+        layout.write(b16)
         time.sleep(0.3)
 
     if not button16.value:
@@ -199,7 +190,7 @@ while True:
         time.sleep(0.3)
 
     if not button17.value:
-        layout.write(b18) 
+        layout.write(b18)
         time.sleep(0.3)
 
     if not button18.value:
@@ -207,7 +198,7 @@ while True:
         time.sleep(0.3)
 
     if not button19.value:
-        layout.write(b20) 
+        layout.write(b20)
         time.sleep(0.3)
 
     if not button20.value:
@@ -215,14 +206,11 @@ while True:
         time.sleep(0.3)
 
     if not button21.value:
-        layout.write(b22) 
+        layout.write(b22)
         time.sleep(0.3)
 
     if not button22.value:
         layout.write(b23)
         time.sleep(0.3)
 
-    time.sleep(0.05)
-  
-
-
+    time.sleep(0.01)
