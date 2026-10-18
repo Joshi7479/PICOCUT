@@ -233,8 +233,8 @@ class Eingabefenster {
                     a = 0;
                 }
             }
-            JOptionPane.showMessageDialog(null, "Jetzt kannst du die frisch erstellte config.txt aus diesem Ordner auf den Pi kopieren!\nNow you can copy the config.txt onto the Pi!");
-            JOptionPane.showMessageDialog(null, "Jetzt ist alles Fertig! Pi ausstecken, wieder einstecken und testen!\n\nProbleme? Schicke mir eine Mail an Joshi7479@proton.me\nNow everything is ready! Just reconnect the Pi!\n\nAny problems? Contact me: Joshi7479@proton.me");
+            JOptionPane.showMessageDialog(null, "Now you can copy the config.txt onto the Pi!");
+            JOptionPane.showMessageDialog(null, "Now everything is ready! Just reconnect the Pi!\n\nAny problems? Contact me: Joshi7479@proton.me");
         }
     }
 }
