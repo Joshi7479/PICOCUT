@@ -1,263 +1,265 @@
-import time
-import board
-import digitalio
-import usb_hid
-from adafruit_hid.keyboard import Keyboard
-from keyboard_layout_win_de import KeyboardLayout
+import javax.swing.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.io.IOException;
+import java.io.BufferedWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 
-kbd = Keyboard(usb_hid.devices)
-layout = KeyboardLayout(kbd)
+class Eingabefenster {
+    public static void main(String[] args) throws IOException {
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+        } catch (Exception e) {
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        String[] optionen = {"Deutsch", "English"};
+        String sprache = (String) JOptionPane.showInputDialog(
+                null,
+                "Please select your language / Bitte wähle deine Sprache aus:",
+                "Sprache/Language",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                optionen,
+                optionen[0]
+        );
+        if (sprache == "Deutsch") {
+            JOptionPane.showMessageDialog(null, "Sprache Deutsch gewählt!");
 
+            JOptionPane.showMessageDialog(null, "Herzlich willkommen zum interaktiven Setup-Programm für PICOCUT!\nNach ein paar Fargen weisst du genau, welche Dateien du herunterladen musst\nund was du mit ihnen tuen musst!");
 
-
-button0 = digitalio.DigitalInOut(board.GP0)
-button0.direction = digitalio.Direction.INPUT
-button0.pull = digitalio.Pull.UP
-
-button1 = digitalio.DigitalInOut(board.GP1)
-button1.direction = digitalio.Direction.INPUT
-button1.pull = digitalio.Pull.UP
-
-button2 = digitalio.DigitalInOut(board.GP2)
-button2.direction = digitalio.Direction.INPUT
-button2.pull = digitalio.Pull.UP
-
-button3 = digitalio.DigitalInOut(board.GP3)
-button3.direction = digitalio.Direction.INPUT
-button3.pull = digitalio.Pull.UP
-
-button4 = digitalio.DigitalInOut(board.GP4)
-button4.direction = digitalio.Direction.INPUT
-button4.pull = digitalio.Pull.UP
-
-button5 = digitalio.DigitalInOut(board.GP5)
-button5.direction = digitalio.Direction.INPUT
-button5.pull = digitalio.Pull.UP
-
-button6 = digitalio.DigitalInOut(board.GP6)
-button6.direction = digitalio.Direction.INPUT
-button6.pull = digitalio.Pull.UP
-
-button7 = digitalio.DigitalInOut(board.GP7)
-button7.direction = digitalio.Direction.INPUT
-button7.pull = digitalio.Pull.UP
-
-button8 = digitalio.DigitalInOut(board.GP8)
-button8.direction = digitalio.Direction.INPUT
-button8.pull = digitalio.Pull.UP
-
-button9 = digitalio.DigitalInOut(board.GP9)
-button9.direction = digitalio.Direction.INPUT
-button9.pull = digitalio.Pull.UP
-
-button10 = digitalio.DigitalInOut(board.GP10)
-button10.direction = digitalio.Direction.INPUT
-button10.pull = digitalio.Pull.UP
-
-button11 = digitalio.DigitalInOut(board.GP11)
-button11.direction = digitalio.Direction.INPUT
-button11.pull = digitalio.Pull.UP
-
-button12 = digitalio.DigitalInOut(board.GP12)
-button12.direction = digitalio.Direction.INPUT
-button12.pull = digitalio.Pull.UP
-
-button13 = digitalio.DigitalInOut(board.GP13)
-button13.direction = digitalio.Direction.INPUT
-button13.pull = digitalio.Pull.UP
-
-button14 = digitalio.DigitalInOut(board.GP14)
-button14.direction = digitalio.Direction.INPUT
-button14.pull = digitalio.Pull.UP
-
-button15 = digitalio.DigitalInOut(board.GP15)
-button15.direction = digitalio.Direction.INPUT
-button15.pull = digitalio.Pull.UP
-
-button16 = digitalio.DigitalInOut(board.GP16)
-button16.direction = digitalio.Direction.INPUT
-button16.pull = digitalio.Pull.UP
-
-button17 = digitalio.DigitalInOut(board.GP17)
-button17.direction = digitalio.Direction.INPUT
-button17.pull = digitalio.Pull.UP
-
-button18 = digitalio.DigitalInOut(board.GP18)
-button18.direction = digitalio.Direction.INPUT
-button18.pull = digitalio.Pull.UP
-
-button19 = digitalio.DigitalInOut(board.GP19)
-button19.direction = digitalio.Direction.INPUT
-button19.pull = digitalio.Pull.UP
-
-button20 = digitalio.DigitalInOut(board.GP20)
-button20.direction = digitalio.Direction.INPUT
-button20.pull = digitalio.Pull.UP
-
-button21 = digitalio.DigitalInOut(board.GP21)
-button21.direction = digitalio.Direction.INPUT
-button21.pull = digitalio.Pull.UP
-
-button22 = digitalio.DigitalInOut(board.GP22)
-button22.direction = digitalio.Direction.INPUT
-button22.pull = digitalio.Pull.UP
-
-
-led = digitalio.DigitalInOut(board.GP25)
-led.direction = digitalio.Direction.OUTPUT
+            String[] CPIops = {"Ja", "Nein"};
+            String CPI = (String) JOptionPane.showInputDialog(
+                    null,
+                    "Hast du Circuitpython auf deinem Pi Pico installiert?",
+                    "Circuitpython installiert?",
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    CPIops,
+                    CPIops[0]);
+            if (CPI == "Nein") {
+                JOptionPane.showMessageDialog(null, "Dann gehe jetzt auf https://circuitpython.org/downloads und lade die Version für deinen Pi herunter.");
+                JOptionPane.showMessageDialog(null, "Super, jetzt stecke deinen Raspberry Pi Pico aus und halte den Knopf gedrückt. \nStecke ihn während du den knopf gedrückt hältst wieder in deinen PC.\nDann die Datei einfach auf den Pi kopieren.");
+                   JOptionPane.showMessageDialog(null, "Das wars schon, jetzt geht`s weiter.");
+            }
+            JOptionPane.showMessageDialog(null, "Gespeichert!");
+            String[] UPorDOWNops = {"Nein", "Ja: Pull-Up Buttons", "Ja: Pull-Down Buttons"};
+            String UPorDOWN = (String) JOptionPane.showInputDialog(
+                    null,
+                    "Weisst du, welchen Button Typ du hast?",
+                    "Button-Typ",
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    UPorDOWNops,
+                    UPorDOWNops[0]);
+            if (UPorDOWN == "Nein") {
+                JOptionPane.showMessageDialog(null, "Dann gehe jetzt zurück zu github und lade die Datei Test_DE.py \nund führe diese im Editor Thonny auf dem Python des Pi aus!");
+                String[] UPorDOWNops2 = {"Pull-Up Buttons", "Pull-Down Buttons"};
+                UPorDOWN = (String) JOptionPane.showInputDialog(
+                        null,
+                        "Jetzt weisst du, welchen Typ du hast!",
+                        "Button-Typ",
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        UPorDOWNops2,
+                        UPorDOWNops2[0]);
 
 
 
+            }
+
+
+            JOptionPane.showMessageDialog(null, "Gespeichert!");
+            if (UPorDOWN == "Ja, Pull-Up Buttons") {
+                JOptionPane.showMessageDialog(null, "Dann lade dir jetzt die Datei cody.py aus dem Ordner code_Pull-Up_DE von Github!");
+            }
+
+            if (UPorDOWN == "Pull-Up Buttons") {
+                JOptionPane.showMessageDialog(null, "Dann lade dir jetzt die Datei cody.py aus dem Ordner code_Pull-Up_DE von Github!");
+            }
+            if (UPorDOWN == "Ja, Pull-Down Buttons") {
+                JOptionPane.showMessageDialog(null, "Dann lade dir jetzt die Datei cody.py aus dem Ordner code_Pull-Down_DE von Github!");
+            }
+
+            if (UPorDOWN == "Pull-Down Buttons") {
+                JOptionPane.showMessageDialog(null, "Dann lade dir jetzt die Datei cody.py aus dem Ordner code_Pull-Down_DE von Github!");
+            }
+            JOptionPane.showMessageDialog(null, "Außerdem brauchst du das Bundle für deine Circuitpython-Version von: https://circuitpython.org/libraries. Darin findest du im ordner Lib den Ordner adafruit_hid. Kopiere diesen in den Lib Ordner\nauf dem Pi. Zusätzlich benötigst du noch die Dateien keyboard_layout_win_de.mpy und keycode_win_de aus dem Repo: keyboard_layout_win_de.mpy. Lege diese auch in den Ordner lib.");
+            JOptionPane.showMessageDialog(null, "Fertig?");
+            JOptionPane.showMessageDialog(null, "Kopiere jetzt code.py auf den Pi Pico!");
+            int a = 1;
+            var scan = new Scanner(System.in);
+            Path newconfig = Paths.get("config.txt");
+            try (BufferedWriter writer = Files.newBufferedWriter(newconfig)) {
+                for (int i = 0; i < 30; i++) {
+                    writer.newLine();
+                }
+                System.out.println("\nConfig was generated successfully!.");
+            } catch (IOException e) {
+                System.out.println("\nSomething went wrong: " + e.getMessage());
+            }
+            while (a == 1) {
+                Path pfad = Path.of("config.txt");
+                List<String> zeilen = Files.readAllLines(pfad, StandardCharsets.UTF_8);
+
+
+                String eingabe = JOptionPane.showInputDialog(null, "Welcher Knopf soll etwas tuen? (Bitte die GP Nummer eingeben) (Hier gibt es den Pin-Belegungs-Planhttps://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)\nNur die Pins 1 - 22 auf jedem Pi Pico werden unterstüzt.)\n");
+                int button = Integer.parseInt(eingabe);
+                if (button > 22) {
+                    System.exit(5);
+                }
+                if (button < 1) {
+                    System.exit(5);
+                }
+                int button2 = button + 5;
+                String text = JOptionPane.showInputDialog(null, "\nWas soll der Knopf tuen?\n");
+
+                if (button2 >= 5 && button < zeilen.size()) {
+                    zeilen.set(button2, text);
+                    Files.write(pfad, zeilen, StandardCharsets.UTF_8);
+                    JOptionPane.showMessageDialog(null, "\nConfig wurde erstellt!\n");
+                } else {
+                    JOptionPane.showMessageDialog(null,"Ups, da hat etwas nicht geklappt!");
+                }
+                String[] Weiterops = {"Ja", "Nein"};
+                String Weiter = (String) JOptionPane.showInputDialog(
+                        null,
+                        "Noch einen Knopf konfigurieren?",
+                        "Weiter konfigurieren?",
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        Weiterops,
+                        Weiterops[0]);
+                if (Weiter == "Nein") {
+                    a = 0;
+                }
+
+            }
+            JOptionPane.showMessageDialog(null, "Jetzt kannst du die frisch erstellte config.txt aus diesem Ordner auf den Pi kopieren!");
+            JOptionPane.showMessageDialog(null, "Jetzt ist alles Fertig! Pi ausstecken, wieder einstecken und testen!\n\nProbleme? Schicke mir eine Mail an Joshi7479@proton.me");
 
 
 
 
+        }
 
-with open("config.txt", "r", encoding="utf-8") as datei:
-    zeilen = datei.readlines()
-    anzahl_zeilen = sum(1 for zeile in datei)
-    
-    b1 = zeilen[5].strip()
-    b2 = zeilen[6].strip()
-    b3 = zeilen[7].strip()
-    b4 = zeilen[8].strip()
-    b5 = zeilen[9].strip()
-    b6 = zeilen[10].strip()
-    b7 = zeilen[11].strip()
-    b8 = zeilen[12].strip()
-    b9 = zeilen[13].strip()
-    b10 = zeilen[14].strip()
-    b11 = zeilen[15].strip()
-    b12 = zeilen[16].strip()
-    b13 = zeilen[17].strip()
-    b14 = zeilen[18].strip()
-    b15 = zeilen[19].strip()
-    b16 = zeilen[20].strip()
-    b17 = zeilen[21].strip()
-    b18 = zeilen[22].strip()
-    b19 = zeilen[23].strip()
-    b20 = zeilen[24].strip()
-    b21 = zeilen[25].strip()
-    b22 = zeilen[26].strip()
-    b23 = zeilen[27].strip()
+        if (sprache == "English") {
 
-    
-    
-    
-  
-while True:
-    led.value = True
+            JOptionPane.showMessageDialog(null, "Setup started in English");
 
-    if not button0.value:
-        layout.write(b1) 
-        time.sleep(0.3)
-        led.value = True
-    if not button1.value:
-        layout.write(b2) 
-        time.sleep(0.3)
-        led.value = False  
-    if not button2.value:
-        led.value(1)
-        layout.write(b3) 
-        time.sleep(0.3)
-        led.value = False
-    if not button3.value:
-        layout.write(b4) 
-        time.sleep(0.3)
-        led.value = False 
-    if not button4.value:
-        
-        layout.write(b5) 
-        time.sleep(0.3)
-        led.value = False
-    if not button5.value:
-        layout.write(b6) 
-        time.sleep(0.3)
-        led.value = False 
-    if not button6.value:
-        
-        layout.write(b7) 
-        time.sleep(0.3)
-        led.value = False
-    if not button7.value:
-        layout.write(b8) 
-        time.sleep(0.3)
-        led.value = False   
-    if not button8.value:
-        led.value(1)
-        layout.write(b9) 
-        time.sleep(0.3)
-        led.value = False
-    if not button9.value:
-        layout.write(b10) 
-        time.sleep(0.3)
-        led.value = False   
-    if not button10.value:
-        
-        layout.write(b11) 
-        time.sleep(0.3)
-        led.value = False
-    if not button11.value:
-        layout.write(b12) 
-        time.sleep(0.3)
-        led.value = False
-    if not button12.value:
-        led.value(1)
-        layout.write(b13) 
-        led.value = False
-        
-    if not button13.value:
-        layout.write(b14) 
-        time.sleep(0.3)
-        led.value = False 
-    if not button14.value:
-        
-        layout.write(b15) 
-        time.sleep(0.3)
-        led.value = False
-    if not button15.value:
-        layout.write(b16) 
-        time.sleep(0.3)
-        led.value = False 
-    if not button16.value:
-        
-        layout.write(b17) 
-        time.sleep(0.3)
-        led.value = False
-    if not button17.value:
-        layout.write(b18) 
-        time.sleep(0.3)
-        led.value = False  
-    if not button18.value:
-        
-        layout.write(b19) 
-        time.sleep(0.3)
-        led.value = False
-    if not button19.value:
-        layout.write(b20) 
-        time.sleep(0.3)
-        led.value = False 
-    if not button20.value:
-        
-        layout.write(b21) 
-        time.sleep(0.3)
-        led.value = False
-    if not button21.value:
-        layout.write(b22) 
-        time.sleep(0.3)
-        led.value = False  
-    if not button22.value:
-        
-        layout.write(b23) 
-        time.sleep(0.3)
-        led.value = False
-        
-  
+            JOptionPane.showMessageDialog(null, "Welcome to this interactive Setup-script for PICOCUT!\nOnly a few questions and you know, which Files you need\nand what you have to do with them!");
 
-           
-    
-    time.sleep(0.05)
-  
+            String[] CPIops = {"Yes", "No"};
+            String CPI = (String) JOptionPane.showInputDialog(
+                    null,
+                    "Do you have Circuitpython installed on your Pi?",
+                    "Circuitpython installed?",
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    CPIops,
+                    CPIops[0]);
+            if (CPI == "No") {
+                JOptionPane.showMessageDialog(null, "Then go now on https://circuitpython.org/downloads and download the Version for you´re Pi.");
+                JOptionPane.showMessageDialog(null, "Great, now plug out the cable to the Pi.\nOn the Pi is a button. Keep it pressed while you plug the cable in!.\nThen just copy the file onto the Pi.");
+                JOptionPane.showMessageDialog(null, "No, the Pi is ready!.");
+            }
+            JOptionPane.showMessageDialog(null, "Saved!");
+            String[] UPorDOWNops = {"No", "Yes: Pull-Up Buttons", "Yes: Pull-Down Buttons"};
+            String UPorDOWN = (String) JOptionPane.showInputDialog(
+                    null,
+                    "Do you know, which Type of Buttons you have?",
+                    "Button-Type",
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    UPorDOWNops,
+                    UPorDOWNops[0]);
+            if (UPorDOWN == "No") {
+                JOptionPane.showMessageDialog(null, "Then go now back to Github and download the file Test_EN.py \nand execute it in the Editor Thonny with the Python of the Pi!");
+                String[] UPorDOWNops2 = {"Pull-Up Buttons", "Pull-Down Buttons"};
+                UPorDOWN = (String) JOptionPane.showInputDialog(
+                        null,
+                        "Now you know, which Type of Button you have!",
+                        "Button-Type",
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        UPorDOWNops2,
+                        UPorDOWNops2[0]);
 
 
+            }
+
+
+            JOptionPane.showMessageDialog(null, "Saved!");
+            if (UPorDOWN == "Yes, Pull-Up Buttons") {
+                JOptionPane.showMessageDialog(null, "Now download code_Pull-Up_EN in the folder code_Pull-Up_EN from Github!");
+            }
+
+            if (UPorDOWN == "Pull-Up Buttons") {
+                JOptionPane.showMessageDialog(null, "Now download code_Pull-Up_EN in the folder code_Pull-Up_EN from Github!");
+            }
+            if (UPorDOWN == "Ja, Pull-Down Buttons") {
+                JOptionPane.showMessageDialog(null, "Now download code_Pull-Down_EN in the folder code_Pull-Down_EN from Github!");
+            }
+
+            if (UPorDOWN == "Pull-Down Buttons") {
+                JOptionPane.showMessageDialog(null, "Now download code_Pull-Down_EN in the folder code_Pull-Down_DE von Github!");
+            }
+            JOptionPane.showMessageDialog(null, "Also you need the Bundle for you´re Circuitpython-Version from: https://circuitpython.org/libraries. In it, there is the folder adafruit_hid. copy this folder in the lib folder\non the Pi.");
+            JOptionPane.showMessageDialog(null, "Ready?");
+            JOptionPane.showMessageDialog(null, "Now you can copy code.py onto the Pi!");
+            int a = 1;
+            var scan = new Scanner(System.in);
+            while (a == 1) {
+                Path pfad = Path.of("config.txt");
+                List<String> zeilen2 = Files.readAllLines(pfad, StandardCharsets.UTF_8);
+
+
+                String input = JOptionPane.showInputDialog(null, "Which Button do you want to configure? (Please type in the GP Number. Only the Pins from 1 - 22 on any Pi Pico are supported!)\nPinouts: https://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)\n");
+                int button3 = Integer.parseInt(input);
+                if (button3 > 22) {
+                    System.exit(5);
+                }
+                if (button3 < 1) {
+                    System.exit(5);
+                }
+                int button2 = button3 + 5;
+                String text = JOptionPane.showInputDialog(null, "And what should the button do / type?");
+
+                if (button2 >= 5 && button3 < zeilen2.size()) {
+                    zeilen2.set(button2, text);
+                    Files.write(pfad, zeilen2, StandardCharsets.UTF_8);
+                    JOptionPane.showMessageDialog(null, "\nConfig was generated successfully!!\n");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Sorry, something went wrong!");
+                }
+                String[] Weiterops2 = {"Yes", "No"};
+                String Weiter2 = (String) JOptionPane.showInputDialog(
+                        null,
+                        "Configure another button?",
+                        "",
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        Weiterops2,
+                        Weiterops2[0]);
+                if (Weiter2 == "No") {
+                    a = 0;
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Jetzt kannst du die frisch erstellte config.txt aus diesem Ordner auf den Pi kopieren!\nNow you can copy the config.txt onto the Pi!");
+            JOptionPane.showMessageDialog(null, "Jetzt ist alles Fertig! Pi ausstecken, wieder einstecken und testen!\n\nProbleme? Schicke mir eine Mail an Joshi7479@proton.me\nNow everything is ready! Just reconnect the Pi!\n\nAny problems? Contact me: Joshi7479@proton.me");
+        }
+    }
+}
