@@ -13,6 +13,7 @@
 8. Führe nun setup.py aus (evtl. rechtsklick --> Als Programm ausführen)
 8.1 Für alle, die tiefer im Thema sind, steht das Setup-Tool auch in java zur verfügung.
 9. Folge dem Setup.
-10. Kopiere die Dateien config.txt und code.py auf den Pi.
+10. Kopiere die Dateien config.txt und code.py auf den Pi. (Es gibt die code.py Datei für pull-Down und Pull-Up knöpfe. Welche du hast, kannst du mit Test_DE.py selbst herausfinden. Lege dazu nur 
+diese Datei in den Hauptordner auf deinem Pi und führe sie im Editor Thonny aus.)
 11. Stecke den Pi einmal ab und wieder an.
 12. Fertig!
