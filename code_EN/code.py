@@ -9,9 +9,6 @@ from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
 kbd = Keyboard(usb_hid.devices)
 layout = KeyboardLayoutUS(kbd)
 
-button0 = digitalio.DigitalInOut(board.GP0)
-button0.direction = digitalio.Direction.INPUT
-button0.pull = digitalio.Pull.UP
 
 button1 = digitalio.DigitalInOut(board.GP1)
 button1.direction = digitalio.Direction.INPUT
@@ -101,21 +98,7 @@ button22 = digitalio.DigitalInOut(board.GP22)
 button22.direction = digitalio.Direction.INPUT
 button22.pull = digitalio.Pull.UP
 
-button23 = digitalio.DigitalInOut(board.GP23)
-button23.direction = digitalio.Direction.INPUT
-button23.pull = digitalio.Pull.UP
 
-button24 = digitalio.DigitalInOut(board.GP24)
-button24.direction = digitalio.Direction.INPUT
-button24.pull = digitalio.Pull.UP
-
-button25 = digitalio.DigitalInOut(board.GP25)
-button25.direction = digitalio.Direction.INPUT
-button25.pull = digitalio.Pull.UP
-
-button26 = digitalio.DigitalInOut(board.GP26)
-button26.direction = digitalio.Direction.INPUT
-button26.pull = digitalio.Pull.UP
 
 
 
@@ -155,9 +138,7 @@ with open("config.txt", "r", encoding="utf-8") as datei:
   
 while True:
     
-    if not button0.value:
-        layout.write(b1) 
-        time.sleep(0.3)
+
         
     if not button1.value:
         layout.write(b2) 
@@ -258,24 +239,7 @@ while True:
         layout.write(b23) 
         time.sleep(0.3)
         
-    if not button23.value:
-        layout.write(b24) 
-        time.sleep(0.3)
-           
-    if not button24.value:
-        
-        layout.write(b25) 
-        time.sleep(0.3)
-        
-    if not button25.value:
-        layout.write(b26) 
-        time.sleep(0.3)
-           
-    if not button26.value:
-        
-        layout.write(b27) 
-        time.sleep(0.3)
-        
+
   
 
            
