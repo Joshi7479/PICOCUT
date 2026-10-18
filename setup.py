@@ -3,12 +3,12 @@ import time
 import sys
 import os
 setup = True
-print("= = =   =    = =  =     =  = = =")
-print("=    =  =  =      =     =    =  ")
-print("= = =   =  =      =     =    =  ")
-print("=       =    = =    = =      =  ")
-print("Herzlich willkommen beim PICUT-Setup-Tool.")
-
+print("= = =   =    = =     = =   = =   =     =  = = = =")
+print("=    =  =  =       =     =       =     =     =   ")
+print("= = =   =  =       =     =       =     =     =   ")
+print("=       =    = =     = =   = =     = =       =   ")
+print("Herzlich willkommen beim PICOCUT-Setup-Tool.")
+print("!Aktuell werden von diesem Projekt NUR PULL-UP Knöpfe unterstüzt!")
 print("ACHTUNG! Im Gegensatz zum Setup-Tool in der Java Variante, muss für dieses eine config File im selben Ordner liegen!")
 h = Input("Meine config.txt liegt im selben Ordner.")
 
@@ -16,7 +16,7 @@ while setup:
     with open ("config.txt", "r",encoding="utf-8") as f:
         zeilen = f.readlines()
     
-    a = int(input("An welchem Port hängt dein Knopf? (Dieses Projekt wurde für den RaspberryPi Pico erstellt.\nFür andere Microcontroller kannst du die Software gerne umschreiben!\nVon dieser Software werden nur die Pins von 1 - 22 angesteuert.\nDie Pinnbelegung aller Pico Modelle ist gleich:\nhttps://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)\nGP Nr."))
+    a = int(input("An welchem GP hängt dein Knopf? (Dieses Projekt wurde für den RaspberryPi Pico erstellt.\nFür andere Microcontroller kannst du die Software gerne umschreiben!\nVon dieser Software werden nur die Pins von 1 - 22 angesteuert.\nDie Pinnbelegung aller Pico Modelle ist gleich:\nhttps://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)\nGP Nr."))
     if a < 1:
         print("Es werden nur die Pins 1-22 unterstüzt!")
         time.sleep(0.5)
@@ -37,6 +37,14 @@ while setup:
         time.sleep(2)
     else:
         print("Auf Wiedersehen")
+        print("= = =   =    = =     = =   = =   =     =  = = = =")
+        print("=    =  =  =       =     =       =     =     =   ")
+        print("= = =   =  =       =     =       =     =     =   ")
+        print("=       =    = =     = =   = =     = =       =   ")
+        print("Geschrieben in Python von Joshi7479")
+        print("Besuche dieses Projekt auch auf Github: github.com/Joshi7479/PICOCUT")
+        print("Fragen? Schicke sie mir gerne an Joshi7479@proton.me")
+        print("Erstelle auch gerne deine eigene Version basierend auf diesem Projekt!")
         time.sleep(0.5)
         setup = False
         
