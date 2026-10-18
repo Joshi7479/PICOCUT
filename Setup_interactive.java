@@ -90,6 +90,7 @@ class Eingabefenster {
             JOptionPane.showMessageDialog(null, "Kopiere jetzt code.py auf den Pi Pico!");
             int a = 1;
             var scan = new Scanner(System.in);
+
             Path newconfig = Paths.get("config.txt");
             try (BufferedWriter writer = Files.newBufferedWriter(newconfig)) {
                 for (int i = 0; i < 30; i++) {
