@@ -3,17 +3,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.io.IOException;
 import java.io.BufferedWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
-
 
 class Eingabefenster {
     public static void main(String[] args) throws IOException {
@@ -76,12 +69,7 @@ class Eingabefenster {
                         null,
                         UPorDOWNops2,
                         UPorDOWNops2[0]);
-
-
-
             }
-
-
             JOptionPane.showMessageDialog(null, "Gespeichert!");
             if (UPorDOWN == "Ja, Pull-Up Buttons") {
                 JOptionPane.showMessageDialog(null, "Dann lade dir jetzt die Datei cody.py aus dem Ordner code_Pull-Up_DE von Github!");
@@ -115,7 +103,6 @@ class Eingabefenster {
                 Path pfad = Path.of("config.txt");
                 List<String> zeilen = Files.readAllLines(pfad, StandardCharsets.UTF_8);
 
-
                 String eingabe = JOptionPane.showInputDialog(null, "Welcher Knopf soll etwas tuen? (Bitte die GP Nummer eingeben) (Hier gibt es den Pin-Belegungs-Planhttps://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)\nNur die Pins 1 - 22 auf jedem Pi Pico werden unterstüzt.)\n");
                 int button = Integer.parseInt(eingabe);
                 if (button > 22) {
@@ -138,7 +125,7 @@ class Eingabefenster {
                 String Weiter = (String) JOptionPane.showInputDialog(
                         null,
                         "Noch einen Knopf konfigurieren?",
-                        "Weiter?",
+                        "Weiter konfigurieren?",
                         JOptionPane.QUESTION_MESSAGE,
                         null,
                         Weiterops,
@@ -146,17 +133,12 @@ class Eingabefenster {
                 if (Weiter == "Nein") {
                     a = 0;
                 }
-
             }
             JOptionPane.showMessageDialog(null, "Jetzt kannst du die frisch erstellte config.txt aus diesem Ordner auf den Pi kopieren!");
             JOptionPane.showMessageDialog(null, "Jetzt ist alles Fertig! Pi ausstecken, wieder einstecken und testen!\n\nProbleme? Schicke mir eine Mail an Joshi7479@proton.me");
-
-
-
-
         }
-
         if (sprache == "English") {
+
             JOptionPane.showMessageDialog(null, "Setup started in English");
 
             JOptionPane.showMessageDialog(null, "Welcome to this interactive Setup-script for PICOCUT!\nOnly a few questions and you know, which Files you need\nand what you have to do with them!");
@@ -170,7 +152,7 @@ class Eingabefenster {
                     null,
                     CPIops,
                     CPIops[0]);
-            if (CPI == "Nein") {
+            if (CPI == "No") {
                 JOptionPane.showMessageDialog(null, "Then go now on https://circuitpython.org/downloads and download the Version for you´re Pi.");
                 JOptionPane.showMessageDialog(null, "Great, now plug out the cable to the Pi.\nOn the Pi is a button. Keep it pressed while you plug the cable in!.\nThen just copy the file onto the Pi.");
                 JOptionPane.showMessageDialog(null, "No, the Pi is ready!.");
@@ -196,14 +178,10 @@ class Eingabefenster {
                         null,
                         UPorDOWNops2,
                         UPorDOWNops2[0]);
-
-
             }
-
-
             JOptionPane.showMessageDialog(null, "Saved!");
             if (UPorDOWN == "Yes, Pull-Up Buttons") {
-                JOptionPane.showMessageDialog(null, "Now download code_Pull-Up_EN in the folder Setupfiles_EN from Github!");
+                JOptionPane.showMessageDialog(null, "Now download code_Pull-Up_EN in the folder code_Pull-Up_EN from Github!");
             }
 
             if (UPorDOWN == "Pull-Up Buttons") {
@@ -224,8 +202,6 @@ class Eingabefenster {
             while (a == 1) {
                 Path pfad = Path.of("config.txt");
                 List<String> zeilen2 = Files.readAllLines(pfad, StandardCharsets.UTF_8);
-
-
                 String input = JOptionPane.showInputDialog(null, "Which Button do you want to configure? (Please type in the GP Number. Only the Pins from 1 - 22 on any Pi Pico are supported!)\nPinouts: https://www.elektronik-kompendium.de/sites/raspberry-pi/2611051.htm)\n");
                 int button3 = Integer.parseInt(input);
                 if (button3 > 22) {
@@ -235,7 +211,7 @@ class Eingabefenster {
                     System.exit(5);
                 }
                 int button2 = button3 + 5;
-                String text = JOptionPane.showInputDialog(null, "And what should the button do?");
+                String text = JOptionPane.showInputDialog(null, "And what should the button do / type?");
 
                 if (button2 >= 5 && button3 < zeilen2.size()) {
                     zeilen2.set(button2, text);
