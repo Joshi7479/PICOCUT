@@ -16,6 +16,7 @@
 8. Start setup.py as a Programm
 8.1 For any People, who dont want to use the Pytho-script, there is also a Setup-Tool writen in Java!
 9. Follow the Instructions.
-10. Copy the files config.txt and code_en.py onto the Pi.
+10. Copy the files config.txt and code_en.py onto the Pi. (There are 2 code.py files. One for so called Pull-Up and one for so called Pull-Down-Buttons. If you dont know wich you have. Execute test-EN.py 
+in thonny while you´re Pi is connected!)
 11. Restart the Pi.
 12. Done!
