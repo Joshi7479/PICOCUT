@@ -3,7 +3,7 @@
 Use your Raspberry Pi Pico as an Shortcut-Board / Makro-Board! / Nutze deinen Raspberry Pi Pico als Shortcut-Board / Makro-Board!
 Use the interactive Setup in German and English to get everything ready with an GUI! Use the setup files in german and English to install it manually on a Raspberry Pi Pico.
 For any other microcontrollers you can build your own fork based on this Project!
-Want to try it first? https://wokwi.com/projects/478207020368504833 (That things get written to often is a bug of the simulation software!)
+Want to try it first? (https://wokwi.com/projects/478554521680846849)
 The GUI is the official supported way to install PICOCUT!
 
 How does PICOCUT work?
