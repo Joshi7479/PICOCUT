@@ -24,4 +24,4 @@ The Setup-Software does two things:
 
 And now: Install it!
 
-PICOCUT made by Joshi7479
+PICOCUT made by <a href=https://github.com/Joshi7479>Joshi7479</a>
